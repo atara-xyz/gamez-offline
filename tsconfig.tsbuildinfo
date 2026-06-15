@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/data.ts","./src/geo.ts","./src/main.tsx","./src/random.ts","./src/ui.tsx","./src/games/capitals.tsx","./src/games/cities.tsx","./src/games/countryguessgame.tsx","./src/games/flagreveal.tsx","./src/games/silhouette.tsx","./src/games/worldmap.tsx"],"errors":true,"version":"5.9.3"}

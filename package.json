@@ -1,0 +1,46 @@
+{
+  "name": "geo-games",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Offline geography learning game suite for the family (Globle/Worldle-style).",
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "media": "node scripts/build-media.mjs",
+    "icons": "node scripts/build-icons.mjs",
+    "words": "node scripts/build-words.mjs",
+    "certs": "node scripts/build-certs.mjs",
+    "nba": "node scripts/build-nba.mjs",
+    "brands": "node scripts/build-brands.mjs",
+    "dev": "vite",
+    "build": "npm run data && tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview --host --port 4173 --strictPort",
+    "serve": "npm run build && vite preview --host --port 4173 --strictPort"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "flag-icons": "^7.5.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "simple-icons": "^16.23.0",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/topojson-client": "^3.1.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "all-the-cities": "^3.1.0",
+    "node-forge": "^1.4.0",
+    "p-limit": "^7.3.0",
+    "playwright": "^1.60.0",
+    "sharp": "^0.34.5",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3",
+    "vite-plugin-pwa": "^0.21.1",
+    "wordnet-db": "^3.1.14",
+    "world-atlas": "^2.0.2",
+    "world-countries": "^5.1.0"
+  }
+}
