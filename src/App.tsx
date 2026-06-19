@@ -5,6 +5,7 @@ import { Capitals } from './games/Capitals';
 import { Cities } from './games/Cities';
 import { ImageGuess } from './games/ImageGuess';
 import { Wordle } from './games/Wordle';
+import { WordSearch } from './games/WordSearch';
 import { NbaLogo } from './games/NbaLogo';
 import { NbaNameAll } from './games/NbaNameAll';
 import { NbaClues } from './games/NbaClues';
@@ -27,7 +28,7 @@ import { PlayersModal } from './PlayersModal';
 type GameId =
   | Mode | 'capitals' | 'cities' | 'dogs' | 'cats' | 'animals' | 'birds' | 'wordle'
   | 'nbalogo' | 'nbaname' | 'nbaclues' | 'nbacolors' | 'geodash'
-  | 'higherlower' | 'countryle' | 'travle' | 'oddoneout' | 'hangman' | 'mathdrill'
+  | 'higherlower' | 'countryle' | 'travle' | 'oddoneout' | 'hangman' | 'mathdrill' | 'wordsearch'
   | 'flowers' | 'brands' | 'dressup' | 'retro' | 'sketch';
 
 interface GameDef {
@@ -55,6 +56,7 @@ const GAMES: GameDef[] = [
   { id: 'flowers', emoji: '🌸', title: 'Flowers', blurb: 'Name the flower from photos. 90 kinds + plant-family hints.', cat: 'Nature' },
   { id: 'wordle', emoji: '🔤', title: 'Wordle', blurb: 'Guess the hidden word in 6 tries. Easy=4, Med=5, Hard=6 letters.', cat: 'Words' },
   { id: 'hangman', emoji: '🪢', title: 'Hangman', blurb: 'Guess the word letter by letter before your lives run out.', cat: 'Words' },
+  { id: 'wordsearch', emoji: '🔡', title: 'Word Search', blurb: 'Find hidden words in a wall of letters. Bigger & trickier each level.', cat: 'Words' },
   { id: 'mathdrill', emoji: '➗', title: 'Math Drill', blurb: 'Answer as many sums as you can in 60 seconds.', cat: 'Math' },
   { id: 'nbalogo', emoji: '🏀', title: 'NBA Logos', blurb: 'Guess the NBA team from its logo. De-blurs as you guess.', cat: 'Basketball' },
   { id: 'nbaname', emoji: '📋', title: 'Name the NBA', blurb: 'Name all 30 NBA teams from memory.', cat: 'Basketball' },
@@ -192,6 +194,9 @@ export default function App() {
           )}
           {game === 'wordle' && (
             <Wordle key={'wordle' + difficulty} difficulty={difficulty} onResult={record} />
+          )}
+          {game === 'wordsearch' && (
+            <WordSearch key={'wordsearch' + difficulty} difficulty={difficulty} onResult={record} />
           )}
           {game === 'nbalogo' && (
             <NbaLogo key={'nbalogo' + difficulty} difficulty={difficulty} onResult={record} />
