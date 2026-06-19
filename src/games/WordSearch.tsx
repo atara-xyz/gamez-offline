@@ -229,6 +229,8 @@ export function WordSearch({
   }
   useEnterToAdvance(over, nextRound);
 
+  // On Hard the word list is hidden — you hunt blind and words appear once found.
+  const showList = difficulty < 3;
   const dirText =
     difficulty === 1
       ? 'across → and down ↓'
@@ -239,7 +241,8 @@ export function WordSearch({
   return (
     <div className="game wordsearch">
       <p className="hint">
-        Find all {puzzle.words.length} words — drag across the letters. They run {dirText}.
+        Find all {puzzle.words.length} {showList ? 'words' : 'hidden words — no list!'} — drag
+        across the letters. They run {dirText}.
       </p>
       <div className="ws-wrap">
         <div className="ws-grid" style={{ ['--n' as string]: puzzle.size }}>
@@ -263,11 +266,15 @@ export function WordSearch({
         </div>
         <div className="ws-side">
           <ul className="ws-words">
-            {puzzle.words.map((w) => (
-              <li key={w.word} className={found[w.word] != null ? 'got' : ''}>
-                {w.word}
-              </li>
-            ))}
+            {puzzle.words.map((w) => {
+              const got = found[w.word] != null;
+              const masked = !showList && !got; // Hard: hide unfound words behind dots.
+              return (
+                <li key={w.word} className={`${got ? 'got' : ''}${masked ? ' masked' : ''}`}>
+                  {masked ? '•'.repeat(w.word.length) : w.word}
+                </li>
+              );
+            })}
           </ul>
           <p className="ws-count">{foundCount} / {puzzle.words.length} found</p>
           {!over && (

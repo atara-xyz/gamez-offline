@@ -519,4 +519,5 @@ footer { margin-top: auto; padding: 18px 0; color: var(--muted); font-size: 12px
   border-radius: 8px; padding: 5px 11px;
 }
 .ws-words li.got { color: var(--muted); text-decoration: line-through; opacity: .55; }
+.ws-words li.masked { color: var(--muted); letter-spacing: 3px; opacity: .5; }
 .ws-count { color: var(--muted); font-size: 14px; margin: 0; font-weight: 600; }
